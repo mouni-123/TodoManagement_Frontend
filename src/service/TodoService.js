@@ -1,14 +1,16 @@
-const BASE_REST_API_URL = 'http://localhost:8080/api/todo';
+//const BASE_REST_API_URL = 'http://localhost:8080/api/todo';
+const BASE_REST_API_URL ='http://todomanagement-restapi.azurewebsites.net/api/todo';
 export const getAlltodos= ()=>
     fetch(BASE_REST_API_URL, {
     method: "GET" 
 })
 export const savetodo=(todo)=>
-    fetch('http://localhost:8080/api/todo/add', {
+    fetch(BASE_REST_API_URL+'/'+'add', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
+        mode: 'cors',
         body: JSON.stringify(todo)});
     
 export const gettodo=(id)=>
